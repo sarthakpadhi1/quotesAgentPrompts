@@ -50,7 +50,7 @@ The `NextQuestionAgent` is responsible for calling the `fetchForm` API and deter
 
 ### How to Use:
 
-1. **Call `NextQuestionAgent`** with ALL collected user information
+1. **Call `NextQuestionAgent`** with ALL collected user information and all the document related information including classification result. 
 2. Pass everything as structured data (JSON format)
 3. Include VERTICAL, partner details, and any other collected information
 
