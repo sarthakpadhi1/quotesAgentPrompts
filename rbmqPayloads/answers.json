@@ -1,0 +1,67 @@
+{
+    "threadId": "exteZ2ASNOUgjwdO5ylFV",
+    "userId": 170,
+    "externalId": 13756,
+    "metaData": {
+        "agent": "QUOTES_AGENT_IGPT",
+        "model_id": "gpt-4o",
+        "model_name": "gpt-4o",
+        "temperature": 0.0,
+        "la_history_size": 100,
+        "reason": "I found several partners with the name \"Anand.\" Please confirm which one you would like to proceed with:\n\n1. **Anandhi R**\n   - **DP No**: DP - 1592866\n\n2. **Anand Kr Dixit**\n   - **DP No**: DP - 1592867\n\n3. **Manoj Anand**\n   - **DP No**: DP - 1592900\n\n4. **Anand Malakar**\n   - **DP No**: DP - 1593221\n\n5. **Anand Mohan Arora**\n   - **DP No**: DP - 1593289\n\n6. **Om Anand Waghmode**\n   - **DP No**: DP - 1604766\n\nPlease let me know which partner you would like to select.",
+        "token_usage": {
+            "completion_tokens": 163,
+            "prompt_tokens": 1659,
+            "total_tokens": 1822,
+            "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0
+            },
+            "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cached_tokens": 0
+            }
+        },
+        "langfuse_trace_id": "30abe7c6-5da8-4349-b224-7d96e08bb8e7",
+        "buttonTitle": "Click",
+        "sections": {
+            "My Requests": [
+                {
+                    "title": "Anandhi R",
+                    "description": "DP No: DP - 1592866",
+                    "id": "0"
+                },
+                {
+                    "title": "Anand Kr Dixit",
+                    "description": "DP No: DP - 1592867",
+                    "id": "1"
+                },
+                {
+                    "title": "Manoj Anand",
+                    "description": "DP No: DP - 1592900",
+                    "id": "2"
+                },
+                {
+                    "title": "Anand Malakar",
+                    "description": "DP No: DP - 1593221",
+                    "id": "3"
+                },
+                {
+                    "title": "Anand Mohan Arora",
+                    "description": "DP No: DP - 1593289",
+                    "id": "4"
+                },
+                {
+                    "title": "Om Anand Waghmode",
+                    "description": "DP No: DP - 1604766",
+                    "id": "5"
+                }
+            ]
+        }
+    },
+    "source": "AI_AGENT",
+    "content": "I found several partners with the name \"Anand.\" Please confirm which one you would like to proceed with:",
+    "messageType": "LIST"
+}

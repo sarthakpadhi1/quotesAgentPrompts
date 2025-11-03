@@ -1,0 +1,22 @@
+{
+    "user_id": "59b94224e4b0a459d044cdd0",
+    "thread_id": "MxnKC2iU6G-2KIWcBzrHh",
+    "message_ids": [
+        "22834"
+    ],
+    "content": "Anandhi R\nnull",
+    "agent": "QUOTES_AGENT_IGPT",
+    "agent_profile_id": 170,
+    "data_description": "",
+    "request_data": {
+        "thread_classification": "QUOTE_REQUEST",
+        "thread_documents": {
+            "7596885365_1761720863000_72c0ab1c-bc88-4964-a1eb-91bd9405fa51.pdf": "https://pro.spectre.turtle-feature.com/api/files/v1/download/7c17a9d4-137b-41fb-b482-7ecfe92a06fc?broker=turtlemint",
+            "7596885365_1761721815000_53f1f100-851b-48ca-b68e-635eb64e9cbf.pdf": "https://pro.spectre.turtle-feature.com/api/files/v1/download/cad9faba-1004-492a-937c-dbd7d5f475d9?broker=turtlemint",
+            "7596885365_1761721266000_a205ad5b-da82-443b-8127-2b5bc75335d9.pdf": "https://pro.spectre.turtle-feature.com/api/files/v1/download/6fa4ebf7-bf21-49a4-b394-42d735e94c51?broker=turtlemint"
+        },
+        "threadId": "MxnKC2iU6G-2KIWcBzrHh"
+    },
+    "nudge_id": null,
+    "files": []
+}
