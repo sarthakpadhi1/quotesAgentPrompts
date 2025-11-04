@@ -105,6 +105,9 @@ The `NextQuestionAgent` is responsible for calling the `fetchForm` API and deter
 ###  uploadDoc API
 Call this API **only when** `NextQuestionAgent` returns `isDone = True`
 
+**Pointers for requestBody**:
+document classificaiton has to be added as "tag"
+
 **Response will include**:
 - `turtledocCaseId`
 - `requestId`
