@@ -51,8 +51,9 @@ The `NextQuestionAgent` is responsible for calling the `fetchForm` API and deter
 ### How to Use:
 
 1. **Call `NextQuestionAgent`** with ALL collected user information and all the document related information including classification result. 
+
 2. Pass everything as structured data (JSON format)
-3. Include VERTICAL, partner details, and any other collected information
+3. Include VERTICAL, partner details, and any other collected information, DOCUMENT_TYPE, PREVIOUS POLICY or RC_COPY. 
 
 ### What You Receive Back:
 
@@ -66,7 +67,8 @@ The `NextQuestionAgent` is responsible for calling the `fetchForm` API and deter
 ### How to Handle the Response:
 
 #### If `is_done = False`:
-- **DIRECTLY ASK THE USER** the question for the returned `field`
+- check if the returned field is information that you already know, for example if it returns back documentType, you might already have that in the chat history. In this case, call the NextQuestionAgent tool again with the additional information.
+- If it's not available before, then ASK THE USER the question for the returned `field`
 - If `options` is provided, present them as choices
 - If `options` is `null`, ask for free-text input
 - **DO NOT** ask any clarifying questions beyond what's specified in the `field`
