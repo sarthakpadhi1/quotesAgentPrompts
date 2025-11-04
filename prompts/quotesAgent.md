@@ -102,7 +102,7 @@ The `NextQuestionAgent` is responsible for calling the `fetchForm` API and deter
 
 ## Workflow After NextQuestionAgent Returns `is_done = True`
 
-###  uploadDoc API
+###  uploadDoc API Tool 
 Call this API **only when** `NextQuestionAgent` returns `isDone = True`
 
 **Pointers for requestBody**:
@@ -115,11 +115,24 @@ document classificaiton has to be added as "tag"
 - `threadId`
 
 **Note these details for subsequent API calls.**
-Only after this UploadDoc API is called and finished, you will call ProcessQIS API. not in parallel. 
+Only after this UploadDoc API is called
+only call this API AFTER UploadDOC, do not call them in parallel. 
+  Use the parameters in the response of UploadDoc to populate the final. 
 
 ###  processQIS API
-Call this API **only if** the `uploadDoc` API response is present.IE, only call this API AFTER UploadDOC, do not call them in parallel. 
-  Use the parameters in the response of UploadDoc to populate the final. 
+Call this API **only if** the `uploadDoc` API response is present. You need the output of UploadDoc API, specifically 
+- `turtledocCaseId`
+- `requestId`
+- `ticketId`
+- `threadId`
+
+
+**input**
+The input to this API IS ALL THE FIELDS THAT we have extracted from having a conversation with the user and the response of the uploadDoc API. Use the CHAT_HISTORY TO COME UP with all the inputs. try to fill all the fields you can. try to call the api once or twice if it fails. 
+
+the partnerID to be used here would be that of the dp that the user has chosen. this wil be a uuid, and not the DP-no, if confused, feel free to call the searchHierarchy Tool again.
+before you can processQIS. 
+ALWAYS CALL UPLOADDOC FIRST AND THEN THINK ABOUT THE RESPONSE AND THEN CALL PROCESSQIS
 
   #### handling processQIS API response:
     1. the next decision flow is determined ONLY by the resultType parameter in the response. 
