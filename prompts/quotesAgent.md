@@ -112,9 +112,10 @@ Call this API **only when** `NextQuestionAgent` returns `isDone = True`
 - `threadId`
 
 **Note these details for subsequent API calls.**
+Only after this UploadDoc API is called and finished, you will call ProcessQIS API. not in parallel. 
 
 ###  processQIS API
-Call this API **only if** the `uploadDoc` API response is present.
+Call this API **only if** the `uploadDoc` API response is present.IE, only call this API AFTER UploadDOC, do not call them in parallel. 
   Use the parameters in the response of UploadDoc to populate the final. 
 
   #### handling processQIS API response:
