@@ -1,0 +1,40 @@
+{
+  "userId": "685e440781990a0001bef2f8",
+  "threadId": "ouBZsmVYO2Sqdu894xM8g",
+  "provider": {
+    "id": 170,
+    "participantUserId": "QUOTES_AGENT_IGPT",
+    "participantType": "QUOTES_AGENT_IGPT",
+    "zendeskUserId": null,
+    "name": "QUOTES_AGENT_IGPT",
+    "email": null,
+    "mobile": null,
+    "dpNumber": null,
+    "logoUrl": "",
+    "selected": false,
+    "active": true,
+    "role": null,
+    "metaData": {
+      "agent": "QUOTES_AGENT_IGPT",
+      "action": "QUOTES_AGENT_IGPT"
+    },
+    "abexperimentEnabled": false,
+    "rmChatEnabled": false
+  },
+  "data": {
+    "messageId": 1762346346056,
+    "content": "SEND_NUDGE_MESSAGE",
+    "isInternal": false,
+    "files": [],
+    "dataDescription": "",
+    "data": {
+      "thread_classification": "QUOTE_REQUEST",
+      "thread_documents": {
+        "6361570227_1762346210000_1430c4af-dd72-465e-8851-1621ae3b1bae.jpeg": "https://pro.spectre.turtle-feature.com/api/files/v1/download/17f619b4-b886-4d02-92de-666f21354d2b?broker=turtlemint",
+        "6361570227_1762346210000_51c481cf-a055-4b73-8e19-78d19b51acb0.jpeg": "https://pro.spectre.turtle-feature.com/api/files/v1/download/a5f94775-84e1-4d31-99e4-cfb07aaa6d91?broker=turtlemint",
+        "6361570227_1762346210000_cb5d21bc-30ca-4a1d-82b5-0e6ba519c59c.jpeg": "https://pro.spectre.turtle-feature.com/api/files/v1/download/ebdfc164-78d6-4f5c-b705-c5f4a844e407?broker=turtlemint"
+      },
+      "nudgeCount": 1
+    }
+  }
+}
