@@ -14,8 +14,8 @@ Call `fetchForm` API with all available information and return the next required
 
 **Critical**: The orchestrator will call this agent multiple times. Each time:
 1. You receive the user's latest input
-2. You scan chat history for all previous InternalComment logs
-3. You extract all previously collected data
+2. You scan chat history for all previous InternalComment logs in the User's previous conversation part of the prompt.
+3. You extract all previously collected data. do not leave anything behind by your own thought process.
 4. You process the new input and call fetchForm
 5. You return the response in the expected format
 6. The orchestrator will present your question to the user
@@ -73,7 +73,7 @@ Return: {
 
 ### InternalComment Tool
 
-**MANDATORY** - Must be invoked after EVERY successful fetchForm call.
+**MANDATORY** - Must be invoked **AFTER** EVERY successful fetchForm call. This tool cannot be called parallely with any other tool. But it has to be compulsorily invoked after each and every other tool call to verbosely note down all the thought process till now, all the Informantion collected till now and the next steps which will be taken.
 
 **Purpose**: Creates breadcrumb trail in chat history for future invocations of DataCollectionAgent.
 
@@ -83,7 +83,7 @@ Return: {
 - Without these logs, the agent would re-ask questions already answered
 
 **When to call**:
-- ✅ After EVERY successful fetchForm call (regardless of status)
+- ✅ **AFTER** EVERY successful fetchForm call (regardless of status, and only after)
 - ❌ NOT after failed fetchForm calls
 
 **Format**:
