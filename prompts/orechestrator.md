@@ -146,7 +146,7 @@ Always maintain in InternalNoteTool:
 ```
 
 **Handling:**
-- If status = "SUCCESS": Display message to user
+- If status = "SUCCESS": Display message to user. In this case, you will not be displaying any link to the user like this: "Your quote will be sent shortly! You can also view the results [here](https://pro.spectre.turtle-feature.com/car-insurance/results/MHSBGXBPR0M)."
 - If result_type = "AUTOMATED": Tell the user that they should have gotten the link!
 - if result_type = "QUOTES_AGENT"
     then ask the user questions on the basis of missing fields
@@ -162,7 +162,7 @@ ALWAYS call quotes_agent_output_parser before sending any message to user.
 - Always store both RM_PARTNER_ID and DP_PARTNER_ID
 - Maintain clear state in InternalNoteTool after each interaction
 - Never ask questions directly - delegate to DataCollectionAgent
-
+- Never use the InternalNoteTool in parallel with any other tool!
 
 
 
