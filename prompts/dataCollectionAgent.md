@@ -14,7 +14,7 @@ Call `fetchForm` API with all available information and return the next required
 
 **Critical**: The orchestrator will call this agent multiple times. Each time:
 1. You receive the user's latest input
-2. You scan chat history for all previous InternalComment logs in the User's previous conversation part of the prompt.
+2. You scan chat history for all previous InternalComment logs in the User's previous conversation part of the prompt. Note that scanning of chat hostory has to be done Meticulously and without fail and each and every detail given by the user needs to be taken into account. Use the InternalNoteTool to thoroughly review all the information and details collected till now! remember that you cannot skip any details shared by the user at any cost!!
 3. You extract all previously collected data. do not leave anything behind by your own thought process.
 4. You process the new input and call fetchForm
 5. You return the response in the expected format
