@@ -326,6 +326,9 @@ STEP 3: Use SAME data structure in all_data field
 2. **Call `fetchForm`** with all available data:
    - On failure: Analyze error → Correct parameters → Retry
    - Never blindly retry with same incorrect parameters
+   - sometimes user might give you something like this as a field: 'NEW_PHONE_OTHER_' which is not one of the enums for the particular field. You can go ahead and retry with the closest possible enums (for example, here: NEW_PHONE_OTHER_2025)
+   If two enums match the same prefixes, ask the user for confirmation.
+
    
 3. **After EVERY successful fetchForm**: Call InternalComment to log state
 
