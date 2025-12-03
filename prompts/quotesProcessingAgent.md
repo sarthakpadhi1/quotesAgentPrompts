@@ -101,9 +101,7 @@ This API is called ONLY AFTER:
 
 Used only when:
 
-* processQIS returns `ASSIGN_TO_OPS`, OR
-* the user becomes irritated, OR
-* the agent repeats a question to the user multiple times.
+* processQIS returns `ASSIGN_TO_OPS`or `QUOTES_REQUEST`
 
 ---
 
@@ -161,9 +159,11 @@ CANNOT RUN unless uploadDocV2 and searchHierarchyTool succeeded AND InternalNote
 * Include all fields from all_data
 * After success → InternalNoteTool
 
----
+If `resultType` field in the response of processQIS is `QUOTES_REQUEST` or `ASSIGN_TO_OPS` , follow these steps in strict order. no exceptions, anytime!
+1. Call AssignToOps tool (role=WATCHER, threadId, participantId=QUOTES_AGENT_IGPT)
+2. Use **updateRole** → set role to **WATCHER**, participantId = **QUOTES_AGENT_IGPT**
 
-### Optional: STEP 4 — UpdateRole (only if result is AUTOMATED)
+These two tools have to be compulsorily called if `resultType` field in the response of processQIS is `QUOTES_REQUEST` or `ASSIGN_TO_OPS`. No exception! Otherwise heavy penalty
 
 ---
 
