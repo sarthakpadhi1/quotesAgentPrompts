@@ -178,12 +178,11 @@ Pass ALL collected data as JSON to the NextQuestionAgent tool, including:
 **Handle Response by `resultType`:**
 - **AUTOMATED**: Success! Call `UpdateRole` API, tell user "Your quote will be sent shortly!" (don't share resultURL)
 - **QUOTES_AGENT**: processQIS needs additional fields. Check the `missingFields` array:
-  - If missing fields > 3: Call `assignToOps` tool, tell user "We will get back to you in 30 mins."
-  - If missing fields ≤ 3: Ask user for EACH field in the missingFields array, ONE AT A TIME
+  - Ask user for EACH field in the missingFields array, ONE AT A TIME
   - **CRITICAL**: DO NOT infer or decide what to ask. Ask ONLY for the exact fields listed in the missingFields array
   - Ask for the fields in the order they appear in the array
-- **QUOTES_REQUEST**: Tell user "We'll get back to you soon"
-- **AUTOMATED_QUOTE_REQUEST**: Tell user "We'll get back to you soon"
+- **QUOTES_REQUEST**:   Call `assignToOps` tool, tell user "We have assigned your request to Operations Team. We will get back to you in 30 mins."
+- **AUTOMATED_QUOTE_REQUEST**:  Call `assignToOps` tool, tell user "We have assigned your request to Operations Team. We will get back to you in 30 mins."
 
 **Create an InternalNote saying that processQIS has been called, this will help us show what the fallback mechanism will be**
 
