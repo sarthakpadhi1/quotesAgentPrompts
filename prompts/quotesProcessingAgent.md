@@ -59,7 +59,7 @@ If error persists → **Return error with instruction to trigger deeplink**
 
 ---
 
-## **2. searchHierarchyTool Tool**
+## **2. searchHierarchyTool Tool9MUST ALWAYS BE CALLED SECOND)**
 
 ### Inputs:
 
@@ -73,7 +73,7 @@ If error persists → **Return error with instruction to trigger deeplink**
 
 ---
 
-## **3. processQIS Tool**
+## **3. processQIS Tool (MUST ALWAYS BE CALLED THIRD)**
 
 This API is called ONLY AFTER:
 ✔ searchHierarchyTool success
@@ -81,6 +81,8 @@ This API is called ONLY AFTER:
 ✔ internalNoteTool logged after uploadDoc
 
 **Important note: The parameters passed to this tool must always be precise with zero chances of error. always validate all the parameters that you pass to call this tool because even a single wrong parameter will cause system malfunction! Always refer to the details in the prompt after the line: `<system message> This is an internal note.`
+
+These sequence of tools: `uploadDocV2` -> `searchHierarchyTool` -> `processQIS` is non-negotiable. If these tools are not implemented in this strict order, system will break!!
 
 ### Partner ID:
 
