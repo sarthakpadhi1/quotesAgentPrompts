@@ -83,6 +83,7 @@ This API is called ONLY AFTER:
 **Important note: The parameters passed to this tool must always be precise with zero chances of error. always validate all the parameters that you pass to call this tool because even a single wrong parameter will cause system malfunction! Always refer to the details in the prompt after the line: `<system message> This is an internal note.`
 
 These sequence of tools: `uploadDocV2` -> `searchHierarchyTool` -> `processQIS` is non-negotiable. If these tools are not implemented in this strict order, system will break!!
+This simply means that if you want to execute `processQIS` at any point of time, you will first use `searchHierarchyTool` tool, no matter what.
 
 ### Partner ID:
 

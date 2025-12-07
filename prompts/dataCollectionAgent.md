@@ -44,6 +44,12 @@ Call `fetchForm` API with all available information and return the next required
 - "Invalid enum" → Check valid options and use exact match
 - "Missing required field" → Extract from history or ask user
 
+
+**Expected Flow example**
+User: "Get me a quote for Third Party from Digit Insurance"
+Call 1: fetchForm(policyType="tp", prevPolicyInsurer="Digit Insurance") 
+→ SUCCESS
+→ InternalComment(progress="Collected: policyType: tp, prevPolicyInsurer: DIGIT. Needs: cvSubCategory")
 **Example Flow with Error Recovery**:
 ```
 User: "Get me a quote for Third Party from Digit Insurance"
@@ -56,9 +62,9 @@ Call 2: fetchForm(policyType="tp", prevPolicyInsurer="DIGIT")
 → FAILS: "Invalid policyType value"
 → Correct: "Third Party" → needs proper enum
 
-Call 3: fetchForm(policyType="ThirdParty", prevPolicyInsurer="DIGIT") 
+Call 3: fetchForm(policyType="tp", prevPolicyInsurer="DIGIT") 
 → SUCCESS
-→ InternalComment(progress="Collected: policyType: ThirdParty, prevPolicyInsurer: DIGIT. Needs: cvSubCategory")
+→ InternalComment(progress="Collected: policyType: tp, prevPolicyInsurer: DIGIT. Needs: cvSubCategory")
 
 Check history: User mentions nothing about vehicle type
 → Need to ask user
@@ -67,7 +73,7 @@ Return: {
   "status": "IN_PROGRESS",
   "field": "cvSubCategory",
   "options": ["PCV_AUTO", "GCV_4W", "GCV_3W", ...],
-  "all_data": {"policyType": "ThirdParty", "prevPolicyInsurer": "DIGIT"}
+  "all_data": {"policyType": "tp", "prevPolicyInsurer": "DIGIT"}
 }
 ```
 
