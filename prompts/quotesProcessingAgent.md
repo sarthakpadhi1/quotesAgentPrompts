@@ -176,10 +176,10 @@ CANNOT RUN unless uploadDocV2 and searchHierarchyTool succeeded AND InternalNote
 
 Call **AssignToOps** fallback in these scenarios:
 
-1. **🔴 CRITICAL: resultType = `QUOTES_REQUEST`** in processQIS response
+1. **🔴 CRITICAL: resultType = `QUOTES_REQUEST` or resultType = `AUTOMATED_QUOTE_REQUEST`** in processQIS response
    - **THIS IS MANDATORY - MUST TRIGGER FALLBACK WITHOUT EXCEPTION**
-   - **If processQIS returns result_type field as `QUOTES_REQUEST`, you MUST call both AssignToOps and updateRole tools**
-   - **Failure to call these tools when result_type is `QUOTES_REQUEST` will cause SEVERE SYSTEM MALFUNCTION**
+   - **If processQIS returns result_type field as `QUOTES_REQUEST` or resultType = `AUTOMATED_QUOTE_REQUEST`, you MUST call both AssignToOps and updateRole tools**
+   - **Failure to call these tools when result_type is `QUOTES_REQUEST`or resultType = `AUTOMATED_QUOTE_REQUEST` will cause SEVERE SYSTEM MALFUNCTION**
 
 2. **API ERRORS in searchHierarchyTool or processQIS**
    - API failure responses
@@ -225,6 +225,16 @@ When triggered:
 ```json
 {
   "result_type": "QUOTES_REQUEST",
+  "missing_fields": null,
+  "instructions": "also make sure to mark postDeliveryThreadStatus = 'NOT_LIVE'. Please let the user know that their quote will be sent shortly and their case has been assigned to OPS. I have already taken care of the fall back, you don't need to call updateRole and deeplink. ONLY message the user with postDeliveryThreadStatus = 'NOT_LIVE'",
+  "error": null
+}
+```
+or
+
+```json
+{
+  "result_type": "AUTOMATED_QUOTES_REQUEST",
   "missing_fields": null,
   "instructions": "also make sure to mark postDeliveryThreadStatus = 'NOT_LIVE'. Please let the user know that their quote will be sent shortly and their case has been assigned to OPS. I have already taken care of the fall back, you don't need to call updateRole and deeplink. ONLY message the user with postDeliveryThreadStatus = 'NOT_LIVE'",
   "error": null
