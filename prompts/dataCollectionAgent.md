@@ -34,9 +34,9 @@ Call `fetchForm` API with all available information and return the next required
 **Calling Strategy**:
 1. **First call**: Submit all explicitly mentioned data from chat history
 2. **On failure**: Read error message, correct parameters, and retry
-3. **After successful call**: Check if any required fields can be filled from chat history
-4. **Keep calling iteratively**: Add newly confirmed/inferred fields and call again
-5. **Continue until**: Response has zero `required = True` fields OR you genuinely need user input
+3. **After successful call**: Check if any required fields can be filled from chat history, ie, synonyms only, that you might have missed in the first call. 
+4. **Call again**
+5. **Continue until**: Response has no `required = True` fields OR you genuinely need user input
 
 **Parameter Correction from Errors**:
 - "Invalid insurer" → Map to correct enum (e.g., "ICICI" → "ICICILOMBARD")
@@ -187,6 +187,22 @@ Agent returns: {
 - **"COMPLETE"**: All fields have `required = False`
 - **"IN_PROGRESS"**: At least one field has `required = True`
 
+
+### CRITICAL: When Inference is ALLOWED vs FORBIDDEN
+
+**ALLOWED Inference (Only These)**:
+- Exact synonyms: "comp" → "Comprehensive", "TP" → "ThirdParty"  
+- Unit conversions: "7 lakhs" → 700000
+- Insurer mapping: "ICICI Lombard" → "ICICILOMBARD"
+- Unambiguous keywords: "school bus" → PCV_SCHOOL_BUS (only if ONE match)
+
+**FORBIDDEN Inference**:
+- Ambiguous terms: "bus" (could be route/school/corporate)
+- Values not mentioned: claims history, preferred insurer, dates, numbers
+- Any field with >1% uncertainty
+
+**Rule**: If uncertain, STOP calling fetchForm and return field to ask user.
+
 ### Processing Required Fields
 
 For each field where `required = True`:
@@ -202,7 +218,7 @@ For each field where `required = True`:
 
 3. Can value be inferred from context/synonyms?
    YES → Call fetchForm with inferred value (correct if fails)
-   NO → Return field to ask user
+   NO → **STOP. Do NOT call fetchForm with guessed values. Return field to ask user.**
 ```
 
 **Only ask if**: Value is completely absent AND cannot be inferred.
